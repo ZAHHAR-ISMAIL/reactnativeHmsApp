@@ -25,6 +25,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import HMSMap, {MapTypes, HMSMarker} from '@hmscore/react-native-hms-map';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -64,32 +66,26 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+          <Section title="HMS Map Example"></Section>
+          <HMSMap
+            mapType={MapTypes.NORMAL}
+            style={{height: 400}}
+            camera={{target: {latitude: 28, longitude: 16}, zoom: 5}}
+            myLocationEnabled={true}
+            myLocationButtonEnabled={true}>
+            {/* <HMSMarker // Simple example
+              coordinate={{latitude: 28, longitude: 16}}
+              title="Hello Huawei Map"
+              snippet="This is a snippet!"
+            /> */}
+          </HMSMap>
         </View>
       </ScrollView>
     </SafeAreaView>
