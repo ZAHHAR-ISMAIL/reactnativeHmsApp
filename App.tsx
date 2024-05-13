@@ -25,12 +25,21 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import HMSMap, {MapTypes, HMSMarker} from '@hmscore/react-native-hms-map';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+
+  // Initialize Map : You can get api_key and data location from agconnect-services
+  HMSMap.module.initializer(
+    'DQEDAKmwnEa6RgVENKOA3chTKFwmsd8jxwa3ugAZpYjUPnS4Y4e6LUCWtuBNrTFjLr8ZJkoQoCU8Aw/s/rPrG8c/5hbyebTk2dkmDw==',
+    'SG',
+  );
+  
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -70,32 +79,26 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+          <Section title="HMS Map Example"></Section>
+          <HMSMap
+            mapType={MapTypes.NORMAL}
+            style={{height: 400}}
+            camera={{target: {latitude: 28, longitude: 16}, zoom: 5}}
+            myLocationEnabled={true}
+            myLocationButtonEnabled={true}>
+            {/* <HMSMarker // Simple example
+              coordinate={{latitude: 28, longitude: 16}}
+              title="Hello Huawei Map"
+              snippet="This is a snippet!"
+            /> */}
+          </HMSMap>
         </View>
       </ScrollView>
     </SafeAreaView>
