@@ -62,6 +62,12 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  // Initialize Map : You can get api_key and data location from agconnect-services
+  HMSMap.module.initializer(
+    'DQEDAKmwnEa6RgVENKOA3chTKFwmsd8jxwa3ugAZpYjUPnS4Y4e6LUCWtuBNrTFjLr8ZJkoQoCU8Aw/s/rPrG8c/5hbyebTk2dkmDw==',
+    'SG',
+  );
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
