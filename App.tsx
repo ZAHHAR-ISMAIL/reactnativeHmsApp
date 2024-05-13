@@ -32,14 +32,7 @@ type SectionProps = PropsWithChildren<{
 }>;
 
 function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  // Initialize Map : You can get api_key and data location from agconnect-services
-  HMSMap.module.initializer(
-    'DQEDAKmwnEa6RgVENKOA3chTKFwmsd8jxwa3ugAZpYjUPnS4Y4e6LUCWtuBNrTFjLr8ZJkoQoCU8Aw/s/rPrG8c/5hbyebTk2dkmDw==',
-    'SG',
-  );
-  
+  const isDarkMode = useColorScheme() === 'dark';  
   return (
     <View style={styles.sectionContainer}>
       <Text
