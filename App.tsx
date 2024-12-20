@@ -8,6 +8,8 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Alert,
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -26,13 +28,14 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import HMSMap, {MapTypes, HMSMarker} from '@hmscore/react-native-hms-map';
+import HMSLocation from '@hmscore/react-native-hms-location';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
 function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';  
+  const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -79,7 +82,25 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="HMS Map Example"></Section>
+          <Section title="HMS Map and Location Example"></Section>
+          <Button
+            title="Get Location"
+            onPress={async () => {
+              console.log(0);
+
+              await HMSLocation.FusedLocation.Native.getLastLocation()
+                .then(pos =>
+                  Alert.alert('Last location: ', JSON.stringify(pos, null, 2)),
+                )
+                .catch(err =>
+                  Alert.alert(
+                    'Failed to get last location',
+                    JSON.stringify(err),
+                  ),
+                );
+              console.log(1);
+            }}
+          />
           <HMSMap
             mapType={MapTypes.NORMAL}
             style={{height: 400}}

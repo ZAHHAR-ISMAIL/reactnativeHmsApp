@@ -1207,6 +1207,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@hmscore/react-native-hms-location@^6.12.0-301":
+  version "6.12.0-302"
+  resolved "https://registry.npmjs.org/@hmscore/react-native-hms-location/-/react-native-hms-location-6.12.0-302.tgz"
+  integrity sha512-Kw+kckrqWTX52If7vPdl2cG+sdK5jRZCxRKxUS4wgfzzBdcoK6UffWi+fK2NPPyA/4+DpVdLGiUnk70dxyYnLQ==
+
 "@hmscore/react-native-hms-map@^6.11.2-301":
   version "6.11.2-301"
   resolved "https://registry.npmjs.org/@hmscore/react-native-hms-map/-/react-native-hms-map-6.11.2-301.tgz"
@@ -5580,10 +5585,10 @@ react-is@^17.0.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-native@*, "react-native@>=0.60.0 <1.0.x", react-native@0.73.7:
-  version "0.73.7"
-  resolved "https://registry.npmjs.org/react-native/-/react-native-0.73.7.tgz"
-  integrity sha512-LfI/INAC9jTf80bBHJQo0SfTEPQADsU8HoLaW7xQKjYXUX40dhu3AoyNEkMOHY4cpQyjEliQZ4dQpQMy733KRQ==
+react-native@*, "react-native@>=0.60.0 <1.0.x", react-native@0.73.6:
+  version "0.73.6"
+  resolved "https://registry.npmjs.org/react-native/-/react-native-0.73.6.tgz"
+  integrity sha512-oqmZe8D2/VolIzSPZw+oUd6j/bEmeRHwsLn1xLA5wllEYsZ5zNuMsDus235ONOnCRwexqof/J3aztyQswSmiaA==
   dependencies:
     "@jest/create-cache-key-function" "^29.6.3"
     "@react-native-community/cli" "12.3.6"
